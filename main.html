@@ -1,39 +1,595 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Verification - VitalScale</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>Apar Shakti - Special Offer</title>
+
+    <!-- Age Verification Gate Check -->
+    <script>
+        if (sessionStorage.getItem('apar_age_verified') !== 'true') {
+            window.location.replace('index.html');
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
+
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
         }
+
         body {
-            background-color: #ffffff;
+            background-color: #f0f0f0;
             color: #111111;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
         }
-        .container {
+
+        .page-container {
             width: 100%;
             max-width: 480px;
-            padding: 30px 20px;
-            text-align: center;
+            background-color: #ffffff;
+            min-height: 100vh;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding-bottom: 150px;
         }
-        .badge-21 {
-            width: 110px;
-            height: 110px;
-            background-color: #dc2626;
-            color: #ffffff;
-            font-size: 38px;
-            font-weight: 800;
-            border-radius: 50%;
+
+        .top-header {
+            background-color: #E98F00;
+            width: 100%;
+            padding: 14px 16px;
+        }
+
+        .header-content {
             display: flex;
             align-items: center;
-            justify-content:
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .header-title {
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1.25;
+            text-transform: uppercase;
+            text-align: right;
+            width: 100%;
+        }
+
+        .hero-section {
+            padding: 25px 18px 20px 18px;
+            text-align: center;
+        }
+
+        .hero-green-title {
+            color: #1b884c;
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .hero-desc {
+            color: #333333;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .offer-section {
+            padding: 15px 14px 25px 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .offer-card {
+            width: 100%;
+            background: #ffffff;
+            border: 2px solid #e68a00;
+            border-radius: 20px;
+            padding: 20px 16px;
+            box-shadow: 0 8px 25px rgba(230, 138, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .special-deal-pill {
+            background: linear-gradient(180deg, #d92222 0%, #b91c1c 100%);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .benefit-chips {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        .benefit-chip {
+            background: #fffdf0;
+            border: 1.5px solid #fcd34d;
+            color: #78350f;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 50px;
+        }
+
+        .dashed-price-box {
+            width: 100%;
+            background: #fffdf5;
+            border: 1.5px dashed #f59e0b;
+            border-radius: 14px;
+            padding: 12px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .price-info-right {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .mrp-line {
+            font-size: 13px;
+            font-weight: 700;
+            color: #475569;
+        }
+
+        .mrp-line del {
+            color: #ef4444;
+            font-weight: 800;
+        }
+
+        .deal-line {
+            font-size: 14px;
+            font-weight: 800;
+            color: #1e293b;
+        }
+
+        .deal-amount {
+            color: #047857;
+            font-size: 26px;
+            font-weight: 900;
+        }
+
+        .save-tag-pill {
+            background: #dcfce7;
+            border: 1px solid #86efac;
+            color: #15803d;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .dual-trust-cards {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+            margin-bottom: 14px;
+        }
+
+        .trust-mini-card {
+            flex: 1;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-align: left;
+        }
+
+        .trust-mini-title {
+            font-size: 12px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .trust-mini-sub {
+            font-size: 10px;
+            font-weight: 600;
+            color: #2563eb;
+        }
+
+        .order-now-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 50px;
+            background: linear-gradient(180deg, #d97706 0%, #b45309 100%);
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 900;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 6px 20px rgba(180, 83, 9, 0.4);
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+
+        .order-secure-footnote {
+            font-size: 11px;
+            font-weight: 700;
+            color: #475569;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .order-form-box {
+            width: 100%;
+            background-color: #1a1a1a;
+            border: 2px solid #e68a00;
+            border-radius: 14px;
+            padding: 20px 14px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-label {
+            display: block;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .form-label .req {
+            color: #ef4444;
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: #ffffff;
+            color: #111111;
+            font-size: 14px;
+            padding: 11px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .phone-prefix-group {
+            display: flex;
+            align-items: stretch;
+            width: 100%;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .phone-prefix-badge {
+            background-color: #f3f4f6;
+            color: #111827;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 11px 12px;
+            border-right: 1px solid #d1d5db;
+            display: flex;
+            align-items: center;
+        }
+
+        .phone-input-field {
+            border: none !important;
+            flex: 1;
+            padding: 11px 12px;
+            outline: none;
+        }
+
+        .phone-duplicate-warning {
+            display: none;
+            margin-top: 6px;
+            padding: 8px 12px;
+            background-color: #fef2f2;
+            border: 1px solid #dc2626;
+            border-radius: 6px;
+            color: #dc2626;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            background-color: #e68a00;
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 800;
+            padding: 13px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 6px;
+            box-shadow: 0 4px 12px rgba(230, 138, 0, 0.3);
+        }
+
+        .sticky-footer-bar {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 480px;
+            background-color: #E98F00;
+            padding: 10px 16px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sticky-footer-title {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 900;
+            margin: 0;
+        }
+
+        .sticky-footer-timer {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .sticky-footer-sub {
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .sticky-footer-btn {
+            background-color: #008000;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 800;
+            padding: 10px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <header class="top-header">
+            <div class="header-content">
+                <h1 class="header-title">National Health Authority • Govt Approved</h1>
+            </div>
+        </header>
+
+        <section class="hero-section">
+            <h1 class="hero-green-title">100% आयुर्वेद और नेचुरल फॉर्मूला</h1>
+            <p class="hero-desc">
+                बिना किसी साइड इफेक्ट के अपनी स्टैमिना, टाइमिंग और एनर्जी को प्राकृतिक रूप से बढ़ाएं। आज ही विशेष छूट का लाभ उठाएं!
+            </p>
+        </section>
+
+        <section class="offer-section">
+            <div class="offer-card">
+                <div class="special-deal-pill">
+                    🔥 सीमित समय का ऑफर (SPECIAL DEAL)
+                </div>
+
+                <div class="benefit-chips">
+                    <span class="benefit-chip">⚡ STAMINA</span>
+                    <span class="benefit-chip">💪 ENERGY</span>
+                    <span class="benefit-chip">⏱️ TIMING</span>
+                </div>
+
+                <div class="dashed-price-box">
+                    <div class="price-info-right">
+                        <div class="mrp-line">M.R.P.: <del>₹4,980/-</del></div>
+                        <div class="deal-line">डील कीमत: <span class="deal-amount">₹2,490/-</span></div>
+                        <div class="save-tag-pill">बचत: ₹2,490 (50% छूट)</div>
+                    </div>
+                </div>
+
+                <div class="dual-trust-cards">
+                    <div class="trust-mini-card">
+                        <span>🚚</span>
+                        <div>
+                            <h5 class="trust-mini-title">मुफ़्त शिपिंग</h5>
+                            <span class="trust-mini-sub">Free Delivery</span>
+                        </div>
+                    </div>
+                    <div class="trust-mini-card">
+                        <span>💵</span>
+                        <div>
+                            <h5 class="trust-mini-title">कैश ऑन डिलीवरी</h5>
+                            <span class="trust-mini-sub">Pay on Delivery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#order-form" class="order-now-btn">
+                    <span>ORDER NOW ₹2490/-</span>
+                </a>
+                <span class="order-secure-footnote">🔒 100% गोपनीय व सुरक्षित पार्सल | पहले कोई पेमेंट नहीं</span>
+            </div>
+
+            <div class="order-form-box" id="order-form">
+                <form id="leadForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="nameInput">Full Name <span class="req">*</span></label>
+                        <input type="text" id="nameInput" name="name" class="form-control" placeholder="अपना पूरा नाम लिखें" required minlength="2" maxlength="50">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="ageInput">Your Age <span class="req">*</span></label>
+                        <input type="number" id="ageInput" name="age" class="form-control" placeholder="अपनी उम्र डालें" required min="18" max="85">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="phoneInput">Phone Number <span class="req">*</span></label>
+                        <div class="phone-prefix-group" id="phonePrefixGroup">
+                            <span class="phone-prefix-badge">🇮🇳 +91</span>
+                            <input type="tel" id="phoneInput" name="phone" inputmode="numeric" class="form-control phone-input-field" placeholder="10 अंकों का मोबाइल नंबर" required oninput="handlePhoneInput(this)">
+                        </div>
+                        <div id="phoneDuplicateAlert" class="phone-duplicate-warning" role="alert">
+                            ⚠️ इस मोबाइल नंबर से पिछले 24 घंटों में पहले ही ऑर्डर सबमिट किया जा चुका है।
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="addressInput">Street Address <span class="req">*</span></label>
+                        <input type="text" id="addressInput" name="address" class="form-control" placeholder="अपना पूरा पता भरिये (गाँव/शहर, जिला)" required minlength="6">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="zipInput">Zip/Postal Code <span class="req">*</span></label>
+                        <input type="text" id="zipInput" name="pincode" inputmode="numeric" minlength="6" maxlength="6" class="form-control" placeholder="पिन कोड लिखिए" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,6)">
+                    </div>
+
+                    <button type="submit" class="form-submit-btn">Order Now</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div class="sticky-footer-bar">
+        <div>
+            <h3 class="sticky-footer-title">Limited Time Offer</h3>
+            <div class="sticky-footer-timer" id="stickyTimer">14 : 59</div>
+            <p class="sticky-footer-sub">ऑफर सीमित समय तक</p>
+        </div>
+        <div>
+            <a href="#order-form" class="sticky-footer-btn">अभी ऑर्डर करे</a>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            let totalSeconds = 15 * 60;
+            const timerEl = document.getElementById('stickyTimer');
+            if (!timerEl) return;
+            setInterval(() => {
+                if (totalSeconds <= 0) totalSeconds = 15 * 60;
+                const m = Math.floor(totalSeconds / 60);
+                const s = totalSeconds % 60;
+                timerEl.textContent = `${String(m).padStart(2, '0')} : ${String(s).padStart(2, '0')}`;
+                totalSeconds--;
+            }, 1000);
+        })();
+
+        const GOOGLE_SHEET_WEBAPP_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+        const SUBMIT_LOCK_DURATION = 24 * 60 * 60 * 1000;
+
+        function normalizePhoneNumber(input) {
+            if (!input) return "";
+            let str = String(input).replace(/\D/g, '');
+            if (str.length > 10) str = str.slice(-10);
+            return str;
+        }
+
+        function isPhoneLocked(phone) {
+            const cleanPhone = normalizePhoneNumber(phone);
+            if (!cleanPhone || cleanPhone.length !== 10) return false;
+            try {
+                const val = localStorage.getItem('phone_submit_' + cleanPhone);
+                if (val && (Date.now() - parseInt(val, 10) < SUBMIT_LOCK_DURATION)) return true;
+            } catch (e) {}
+            return false;
+        }
+
+        function lockPhoneNumber(phone) {
+            const cleanPhone = normalizePhoneNumber(phone);
+            if (cleanPhone.length === 10) {
+                localStorage.setItem('phone_submit_' + cleanPhone, Date.now().toString());
+            }
+        }
+
+        function handlePhoneInput(input) {
+            document.getElementById('phoneDuplicateAlert').style.display = 'none';
+            input.value = normalizePhoneNumber(input.value).slice(0, 10);
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('leadForm');
+            const submitBtn = form.querySelector('.form-submit-btn');
+
+            const rawPhone = document.getElementById('phoneInput').value.trim();
+            const normalizedPhone = normalizePhoneNumber(rawPhone);
+
+            if (!/^[6-9]\d{9}$/.test(normalizedPhone)) {
+                alert('कृपया वैध 10 अंकों का भारतीय मोबाइल नंबर दर्ज करें।');
+                return;
+            }
+
+            if (isPhoneLocked(normalizedPhone)) {
+                document.getElementById('phoneDuplicateAlert').style.display = 'block';
+                alert('⚠️ इस मोबाइल नंबर से पहले ही ऑर्डर सबमिट किया जा चुका है।');
+                return;
+            }
+
+            lockPhoneNumber(normalizedPhone);
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Order Placed! Submitting...";
+
+            const formData = new FormData(form);
+            formData.set('phone', '+91 ' + normalizedPhone);
+
+            if (GOOGLE_SHEET_WEBAPP_URL && GOOGLE_SHEET_WEBAPP_URL !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
+                fetch(GOOGLE_SHEET_WEBAPP_URL, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors',
+                    keepalive: true
+                }).catch(err => console.error(err));
+            }
+
+            setTimeout(() => {
+                alert('🎉 आपका ऑर्डर सफलतापूर्वक सबमिट हो गया है! जल्द ही हमारी टीम आपसे संपर्क करेगी।');
+                form.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Order Now";
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
