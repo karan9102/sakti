@@ -1,584 +1,124 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veda Prime+ | Vedantara Naturals</title>
-    <meta name="description" content="Veda Prime+ by Vedantara Naturals – Ayurvedic formula for men's wellness. Free Shipping + Cash on Delivery.">
-    <link rel="icon" href="images/logo.png">
-
-    <!-- Google Fonts (same as reference: Poppins + Roboto) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2">
-
-  
-
+    <title>Age Verification - VitalScale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            color: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 480px;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .badge-21 {
+            width: 110px;
+            height: 110px;
+            background-color: #dc2626;
+            color: #ffffff;
+            font-size: 38px;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px auto;
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #111;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 15px;
+            font-weight: 500;
+            color: #4b5563;
+            margin-bottom: 30px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        .btn-yes {
+            background-color: #15803d;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(21, 128, 61, 0.3);
+            transition: 0.2s;
+        }
+        .btn-yes:hover { background-color: #166534; }
+        .btn-no {
+            background-color: #dc2626;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 14px 35px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+            transition: 0.2s;
+        }
+        .btn-no:hover { background-color: #b91c1c; }
+        .footer-note {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+    </style>
 </head>
-
 <body>
 
-    <!-- ================= AGE VERIFICATION GATE ================= -->
-    <div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageGateTitle">
-        <div class="age-card">
-            <img src="images/age-21.webp" alt="21+ Age Verification" class="age-badge-img" width="150" height="150">
-            <h1 class="age-title" id="ageGateTitle">Age Verification</h1>
-            <p class="age-sub">Are you over 21 years of age?</p>
-            <div class="age-btns">
-                <button type="button" class="age-yes" id="ageYes">Yes, I'm 21+</button>
-                <button type="button" class="age-no" id="ageNo">NO</button>
-            </div>
-            <p class="age-note">* This site is intended only for individuals over 21 years of age.</p>
-            <div class="age-denied" id="ageDenied">
-                Access restricted. You must be at least 21 years old to view this website.
-            </div>
+    <div class="container">
+        <div class="badge-21">21+</div>
+        <h1>Age Verification</h1>
+        <p>Are you over 21 years of age?</p>
+
+        <div class="btn-group">
+            <!-- 'Yes' पर क्लिक करने पर यूज़र main.html पर चला जाएगा -->
+            <button class="btn-yes" onclick="verifyAge()">Yes, I'm 21+</button>
+            <a href="#" class="btn-no" onclick="alert('You must be 21+ to access this website.'); return false;">NO</a>
+        </div>
+
+        <div class="footer-note">
+            * This site is intended only for individuals over 21 years of age.
         </div>
     </div>
 
-    <div class="page-container">
-
-        <!-- ================= HEADER ================= -->
-        <header class="top-header">
-            <div class="header-content">
-                <a href="#" class="brand" aria-label="Vedantara Naturals home">
-                    <img src="images/logo.png" alt="Vedantara Naturals" class="header-logo" width="420" height="398">
-                </a>
-                <p class="header-title">100% Ayurvedic<br>Herbal Formula</p>
-            </div>
-        </header>
-
-        <!-- ================= HERO ================= -->
-        <section class="hero-section">
-            <h1 class="hero-green-title">INDIA'S TOP SELLING VEDA PRIME+ CAPSULE</h1>
-            <p class="hero-desc">
-                भारत का सबसे भरोसेमंद आयुर्वेदिक कैप्सूल। 100% आयुर्वेदिक फॉर्मूला।
-            </p>
-        </section>
-
-        <!-- Banner: couple photo + text overlay -->
-        <section class="banner-section">
-            <div class="desire-banner">
-                <h2 class="desire-title">महिलाओं <span>की ख्वाहिश</span></h2>
-                <img src="images/couple-banner.jpg" alt="Romantic couple" class="desire-img" width="1000" height="667">
-                <ul class="desire-list">
-                    <li>जंबो साइज लिंग</li>
-                    <li>ज्यादा सेक्स टाइमिंग</li>
-                    <li>दमदार स्टैमिना</li>
-                    <li>बेहतर सेक्स ऑर्गेज़्म</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Post-banner text -->
-        <section class="text-block">
-            <p class="hero-desc">
-                अश्वगंधा, शिलाजीत और सफ़ेद मूसली जैसी पारंपरिक जड़ी-बूटियों का संतुलित मिश्रण — Veda Prime+ को अपनी
-                रोज़ की wellness routine का हिस्सा बनाएं।
-            </p>
-        </section>
-
-        <!-- Product image -->
-        <section class="banner-section">
-            <img src="images/veda-prime-bottle.webp" alt="Veda Prime+ Capsule bottle" class="main-img natural product-shot" loading="lazy" width="526" height="924">
-        </section>
-
-        <!-- Product benefits infographic -->
-        <section class="banner-section">
-            <img src="images/product-3.webp" alt="Veda Prime+ benefits: 100% herbal, Ayurvedic wellness, energy &amp; stamina, male wellness" class="main-img natural" loading="lazy" width="800" height="800">
-        </section>
-
-        <!-- ================= OFFER ================= -->
-        <section class="offer-section">
-            <p class="offer-benefit-title">BENEFITS : SIZE + STAMINA + TIMING</p>
-            <h2 class="offer-shipping-en">Free Shipping + Cash on Delivery</h2>
-            <h3 class="offer-shipping-hi">मुफ़्त शिपिंग + कॅश ऑन डिलीवरी</h3>
-
-            <div class="offer-badge" aria-label="45% OFF">
-                <span class="ob-big">45%</span>
-                <span class="ob-small">OFF</span>
-            </div>
-
-            <div class="pricing-row">
-                <span class="original-price"><del>₹4,500/-</del></span>
-                <span class="offer-price">Offer Price ₹2,490/-</span>
-            </div>
-
-            <a href="#order-form" class="order-now-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
-                </svg>
-                ORDER NOW ₹2490/-
-            </a>
-        </section>
-
-        <!-- Details image -->
-        <section class="banner-section">
-            <img src="images/5.webp" alt="Veda Prime+ Lab Testing" class="main-img natural" loading="lazy" width="552" height="331">
-        </section>
-
-        <section class="title-block">
-            <h2 class="section-title-highlight">महिलाएं ऐसा मर्द चाहती हैं जो उनके अंग अंग में तरंग जगाएं</h2>
-        </section>
-
-        <!-- 4-week image -->
-        <section class="banner-section">
-            <img src="images/4-week.webp" alt="4 Week Results" class="main-img natural" loading="lazy" width="576" height="859">
-        </section>
-
-        <section class="title-block">
-            <h2 class="section-title-red">
-                नकली उत्पादों से सावधान रहें — Veda Prime+ केवल Vedantara Naturals की इसी आधिकारिक वेबसाइट पर उपलब्ध है।
-            </h2>
-        </section>
-
-        <!-- ================= DARK OFFER + ORDER FORM ================= -->
-        <section class="dark-offer-section">
-            <img src="images/veda-prime-bottle.webp" alt="Veda Prime+ Capsule bottle" class="dark-product-img" loading="lazy" width="526" height="924">
-
-            <p class="dark-benefit-title">BENEFITS : SIZE + STAMINA + TIMING</p>
-
-            <div class="offer-badge offer-badge--sm" aria-label="45% OFF">
-                <span class="ob-big">45%</span>
-                <span class="ob-small">OFF</span>
-            </div>
-
-            <div class="pricing-row">
-                <span class="original-price"><del>₹4,500/-</del></span>
-                <span class="offer-price offer-price--light">Offer Price ₹2,490/-</span>
-            </div>
-
-            <a href="#order-form" class="order-now-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
-                </svg>
-                ORDER NOW ₹2490/-
-            </a>
-
-            <div class="shipping-note">
-                <h3>Free Shipping</h3>
-                <h4>मुफ़्त शिपिंग</h4>
-                <p>
-                    ऑर्डर करने के बाद हमारे डिलीवरी पार्टनर आपसे जल्द ही सम्पर्क करेंगे और आपका ऑर्डर 3-7 दिनों में
-                    आपके दिए गए पते पर डिलीवर कर दिया जाएगा
-                </p>
-            </div>
-
-            <!-- Order Form -->
-            <div class="order-form-box" id="order-form">
-                <div id="orderSuccessMsg" class="form-success-banner" role="status" aria-live="polite">
-                    ✓ आपका ऑर्डर सफलतापूर्वक दर्ज कर लिया गया है! हम जल्द ही आपसे संपर्क करेंगे।
-                </div>
-
-                <form id="leadForm" novalidate>
-                    <div class="form-group">
-                        <label class="form-label" for="nameInput">Full Name <span class="req">*</span></label>
-                        <input type="text" id="nameInput" name="name" class="form-control"
-                            placeholder="अपना पूरा नाम लिखे" required minlength="2" maxlength="50" autocomplete="name">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="ageInput">Your Age <span class="req">*</span></label>
-                        <input type="number" id="ageInput" name="age" class="form-control"
-                            placeholder="अपना उम्र डालें" required min="18" max="85" inputmode="numeric">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="weightInput">Your Weight <span class="req">*</span></label>
-                        <input type="number" id="weightInput" name="weight" class="form-control"
-                            placeholder="अपना वजन डालें" required min="35" max="150" inputmode="numeric">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="phoneInput">Phone Number <span class="req">*</span></label>
-                        <input type="tel" id="phoneInput" name="phone" inputmode="numeric" maxlength="10"
-                            class="form-control" placeholder="अपना 10 अंकों का फ़ोन नंबर दर्ज करे" required
-                            autocomplete="tel-national">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="addressInput">Street Address <span class="req">*</span></label>
-                        <input type="text" id="addressInput" name="address" class="form-control"
-                            placeholder="अपना पूरा पता भरिये" required minlength="6" maxlength="200"
-                            autocomplete="street-address">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="zipInput">Zip/Postal Code <span class="req">*</span></label>
-                        <input type="text" id="zipInput" name="pincode" inputmode="numeric" maxlength="6"
-                            class="form-control" placeholder="पिन कोड लिखिए" required autocomplete="postal-code">
-                    </div>
-
-                    <p class="form-error" id="formError" role="alert"></p>
-
-                    <button type="submit" class="form-submit-btn">Order Now</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- ================= PAYMENT / TRUST STRIP ================= -->
-        <section class="banner-section trust-images">
-            <img src="images/upi.webp" alt="UPI & Payment Options" class="main-img natural" loading="lazy" width="768" height="228">
-        </section>
-
-        <section class="banner-section">
-            <img src="images/trust-badges.webp" alt="Free Shipping, AYUSH/FSSAI Approved, Made in India" class="main-img natural" loading="lazy" width="536" height="55">
-        </section>
-
-        <!-- Product poster -->
-        <section class="banner-section">
-            <img src="images/product-1.webp" alt="Veda Prime+ — For a Stronger You, natural care for men's wellness" class="main-img natural" loading="lazy" width="800" height="960">
-        </section>
-
-        <!-- Product highlight text -->
-        <section class="text-block">
-            <p class="body-text">
-                Veda Prime+ लिंग वृद्धि के लिए एक प्रभावी और प्राकृतिक उत्पाद है. Veda Prime+ आपकी खड़ेपन की समस्या में भी
-                सहायता करेगा, क्योंकि ये आपके लिंग को बिना किसी समस्या के बड़ा और मज़बूत बनाने का नया तरीक़ा है. Veda Prime+
-                का उपयोग करके आपको महसूस होगा कि आपकी संवेदनशीलता बेहतर हो गयी है. बस इसे आज़माइए!
-            </p>
-        </section>
-
-        <!-- ================= STORY / QUOTE BLOCKS ================= -->
-        <section class="banner-section">
-            <img src="images/couplegif.gif" alt="Veda Prime+" class="main-img bordered" loading="lazy">
-        </section>
-
-        <section class="title-block">
-            <h2 class="statement">एक बड़ा लिंग ऐसी चीज होती है जिस पर हर मर्द को गर्व होना चाहिए!</h2>
-        </section>
-
-        <section class="box-block">
-            <div class="dbl-box">
-                <p class="quote">“Veda Prime+ के साथ पुरुषों को अपने इरेक्शन की firmness, sexual stamina और performance
-                    को लेकर बेहतर confidence महसूस करने में मदद मिल सकती है।”</p>
-            </div>
-        </section>
-
-        <section class="banner-section">
-            <img src="images/penis.webp" alt="Natural ingredients" class="main-img bordered" loading="lazy">
-        </section>
-
-        <section class="box-block">
-            <div class="dbl-box">
-                <p class="quote">“कमज़ोर इरेक्शन और जल्दी थकान जैसी चिंताओं से परेशान पुरुषों के लिए Veda Prime+ को
-                    पुरुषों की sexual wellness को ध्यान में रखकर तैयार किया गया है।”</p>
-            </div>
-        </section>
-
-        <section class="title-block">
-            <h2 class="orange-heading">मर्दानगी वापस लाकर उसे बढ़ाया कैसे सकते हैं?</h2>
-        </section>
-
-        <section class="box-block">
-            <div class="dbl-box">
-                <h4 class="box-title">
-                    क्या जल्दी से अपनी मर्दानगी वापस लाना संभव है, वह भी सुरक्षित तरीके से और डॉक्टर के पास जाए बिना?
-                </h4>
-                <p>
-                    आज इंटरनेट में कई तरह की जैल और गोलियां आसानी से उपलब्ध हैं, लेकिन क्या ये विज्ञापन में बताए जितनी
-                    असरदार हैं? सही चुनाव के लिए हमेशा भरोसेमंद, प्राकृतिक और आयुर्वेदिक विकल्प चुनें।
-                </p>
-            </div>
-        </section>
-
-        <section class="banner-section">
-            <img src="images/largepenis.webp" alt="Herbal formula" class="main-img bordered" loading="lazy">
-        </section>
-
-        <section class="box-block">
-            <div class="dbl-box">
-                <ul class="benefit-list">
-                    <li>इसमें प्राकृतिक आयुर्वेदिक घटक हैं।</li>
-                    <li>इससे बिना दर्द या ऑपरेशन के लिंग बड़ा हो जाता है।</li>
-                    <li>इससे कामेच्छा बेहतर हो जाती है और सेक्स के समय बहुत ही बढ़िया अनुभव होता है।</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="box-block">
-            <div class="dbl-box">
-                <p class="quote">“बेहतर firmness, बेहतर stamina और performance को लेकर ज्यादा confidence—Veda Prime+
-                    पुरुषों की intimate wellness को सपोर्ट करने के लिए बनाया गया है।”</p>
-            </div>
-        </section>
-
-        <section class="box-block">
-            <div class="dbl-box">
-                <p>
-                    लिंग का साइज़ ही वह आधार है जिस पर मर्द की पर्सनलिटी और व्यवहार निर्भर होता है। जब आप बिस्तर में किसी
-                    नंगी औरत के साथ लेते हों तो केवल आपके लिंग का ही महत्व होता है। वह आपसे पूरी संतुष्टि की उम्मीद करती है
-                    और आप उसे यह दे पाएंगे कि नहीं यह सीधे-सीधे आपके साइज़ पर निर्भर करता है।
-                </p>
-            </div>
-        </section>
-
-        <section class="box-block">
-            <div class="dbl-box">
-                <p class="quote">“अपनी sexual performance को लेकर confidence बढ़ाएं। Veda Prime+ पुरुषों की stamina
-                    और intimate wellness को support करने वाला आयुर्वेदिक फॉर्मूला है।”</p>
-            </div>
-        </section>
-
-        <section class="banner-section">
-            <img src="images/guys.webp" alt="Daily routine" class="main-img bordered" loading="lazy">
-        </section>
-
-        <section class="box-block">
-            <div class="dbl-box">
-                <p>
-                    मर्दानगी की समस्या होने ही न दें। याद रखे कि सेक्स और बिस्तर में संतुष्टि एक औरत के लिए बहुत अहम चीजें
-                    होती हैं, खासकर जवान औरतों के लिए। यदि आप नियमित रूप से अच्छा सेक्स नहीं कर पाते तो अंत में आपके पूरे
-                    जीवन पर इसका नकारात्मक असर पड़ने लगेगा।
-                </p>
-            </div>
-        </section>
-
-        <section class="title-block">
-            <h2 class="orange-heading">अपने लिंग पर अभी तुरंत गर्व करना शुरू करें।</h2>
-        </section>
-
-        <section class="box-block">
-            <div class="dbl-box">
-                <p class="quote">“Intimate moments में बेहतर confidence और performance के लिए Veda Prime+ को अपनी पुरुष
-                    wellness routine का हिस्सा बनाएं।”</p>
-            </div>
-        </section>
-
-        <section class="box-block">
-            <div class="dbl-box">
-                <h3 class="box-title--orange">
-                    Veda Prime+ Capsule को तीन शब्दों में बयां किया जा सकता है – संतुष्टि, स्थिरता और कार्यक्षमता।
-                </h3>
-            </div>
-        </section>
-
-        <section class="box-block">
-            <div class="dbl-box">
-                <p>
-                    बाजार में उपलब्ध नकली उत्पादों से बचें और Veda Prime+ Capsule को केवल ऑफिशियल सप्लायर से ही 45% छूट
-                    पर ऑर्डर करें। एक नई ज़िंदगी की ओर पहला कदम बढ़ाएँ और अपने जीवनसाथी को पूरी संतुष्टि दें।
-                </p>
-            </div>
-        </section>
-
-        <!-- ================= REVIEWS ================= -->
-        <!-- Avatars are pre-blurred photos (images/avatar-*.webp) so faces can't be identified. Replace with real customer photos (with their permission), blurred the same way. -->
-        <section class="title-block">
-            <h2 class="section-title-highlight">ग्राहकों की राय</h2>
-        </section>
-
-        <section class="reviews-container">
-            <article class="review-card-box">
-                <div class="review-img-frame"><img src="images/customer-review-15.png" alt="Ankita" loading="lazy"></div>
-                <h4 class="review-user-name">Ankita (From Haryana)</h4>
-                <p class="review-user-text">
-                    मैं सच में हैरान रह गई कि मेरे पति की परफॉर्मेंस कितनी बेहतर हो गई है. बाद में मुझे उनके बेडसाइड में
-                    Veda Prime+ मिला, शायद इसी ने इतना फर्क बनाया है. Thank You Veda Prime+.
-                </p>
-            </article>
-
-            <article class="review-card-box">
-                <div class="review-img-frame"><img src="images/customer-review-10.png" alt="Ravi" loading="lazy"></div>
-                <h4 class="review-user-name">Ravi (From Jodhpur)</h4>
-                <p class="review-user-text">
-                    यह वास्तव में प्रभावी उत्पाद है। मैंने अपने जीवन में कई दवाओं की कोशिश की है, लेकिन किसी ने भी
-                    Veda Prime+ जैसा प्रभाव नहीं दिया! मेरा आत्मविश्वास पहले से कहीं बेहतर है।
-                </p>
-            </article>
-        </section>
-
-        <section class="banner-section">
-            <img src="images/romance2.gif" alt="Nature" class="main-img" loading="lazy">
-        </section>
-
-        <section class="reviews-container">
-            <article class="review-card-box">
-                <div class="review-img-frame"><img src="images/customer-review-17.png" alt="Kavita" loading="lazy"></div>
-                <h4 class="review-user-name">कविता (From Delhi)</h4>
-                <p class="review-user-text">
-                    Veda Prime+ के नियमित उपयोग से मेरे पार्टनर की स्टैमिना और टाइमिंग में बहुत शानदार बदलाव आया है। अब
-                    हमारी मैरिड लाइफ में पूरा संतोष और खुशहाली है। यह सचमुच एक असरदार आयुर्वेदिक उत्पाद है!
-                </p>
-            </article>
-
-            <article class="review-card-box">
-                <div class="review-img-frame"><img src="images/customer-review-8.png" alt="Jeetu" loading="lazy"></div>
-                <h4 class="review-user-name">जीतू (From Jodhpur)</h4>
-                <p class="review-user-text">
-                    शादी के बाद मेरी परफॉर्मेंस और कॉन्फिडेंस में बहुत जबरदस्त सुधार हुआ है। Veda Prime+ ने मेरे रिश्ते को
-                    एक नया जीवन और अद्भुत ऊर्जा दी है। Thank You Veda Prime+!
-                </p>
-            </article>
-        </section>
-
-        <section class="banner-section">
-            <img src="images/romance.gif" alt="Nature" class="main-img" loading="lazy">
-        </section>
-
-        <section class="reviews-container">
-            <article class="review-card-box">
-                <div class="review-img-frame"><img src="images/customer-review-7.png" alt="Amit" loading="lazy"></div>
-                <h4 class="review-user-name">Amit (From Patna)</h4>
-                <p class="review-user-text">
-                    Veda Prime+ Capsule का परिणाम वाकई बहुत कमाल का है। पहले मुझे हमेशा कमजोरी और स्टैमिना की कमी महसूस
-                    होती थी, लेकिन इसके इस्तेमाल के बाद मेरी ऊर्जा और परफॉर्मेंस कई गुना बढ़ गई है।
-                </p>
-            </article>
-
-            <article class="review-card-box">
-                <div class="review-img-frame"><img src="images/customer-review-6.png" alt="Rajiv" loading="lazy"></div>
-                <h4 class="review-user-name">Rajiv (From Jodhpur)</h4>
-                <p class="review-user-text">
-                    मेरे वैवाहिक जीवन में Veda Prime+ ने एक नया आत्मविश्वास भर दिया है। मेरी टाइमिंग, स्टैमिना और जोश
-                    पहले से कहीं बेहतर हो गया है।
-                </p>
-            </article>
-
-            <!-- New reviews -->
-            <article class="review-card-box">
-                <div class="review-img-frame"><img src="images/customer-review-5.png" alt="Suresh" loading="lazy"></div>
-                <h4 class="review-user-name">Suresh (From Lucknow)</h4>
-                <p class="review-user-text">
-                    “Veda Prime+ इस्तेमाल करने के बाद मुझे अपनी परफॉर्मेंस में काफी फर्क महसूस हुआ। पहले जहां कॉन्फिडेंस
-                    को लेकर थोड़ा तनाव रहता था, अब खुद पर ज्यादा भरोसा महसूस होता है। मेरी मैरिड लाइफ में भी इसका अच्छा
-                    असर देखने को मिला।”
-                </p>
-            </article>
-
-            <article class="review-card-box">
-                <div class="review-img-frame"><img src="images/customer-review-16.png" alt="Pooja" loading="lazy"></div>
-                <h4 class="review-user-name">Pooja (From Jaipur)</h4>
-                <p class="review-user-text">
-                    “मेरे पति ने Veda Prime+ का नियमित इस्तेमाल शुरू किया और कुछ समय बाद उनकी एनर्जी और कॉन्फिडेंस में
-                    बदलाव नजर आने लगा। अब हमारी निजी जिंदगी पहले से ज्यादा बेहतर और संतोषजनक लगती है।”
-                </p>
-            </article>
-
-            <article class="review-card-box">
-                <div class="review-img-frame"><img src="images/customer-review-3.png" alt="Vikas" loading="lazy"></div>
-                <h4 class="review-user-name">Vikas (From Indore)</h4>
-                <p class="review-user-text">
-                    “शादीशुदा जिंदगी में परफॉर्मेंस को लेकर चिंता होने लगी थी। Veda Prime+ ट्राई करने के बाद मुझे अपनी
-                    स्टैमिना और कॉन्फिडेंस में सकारात्मक बदलाव महसूस हुआ। अब पार्टनर के साथ समय को लेकर ज्यादा रिलैक्स और
-                    खुश रहता हूं।”
-                </p>
-            </article>
-
-            <article class="review-card-box">
-                <div class="review-img-frame"><img src="images/customer-review-2.png" alt="Manoj" loading="lazy"></div>
-                <h4 class="review-user-name">Manoj (From Pune)</h4>
-                <p class="review-user-text">
-                    “Veda Prime+ मेरे लिए एक अच्छा अनुभव रहा। इसके इस्तेमाल के बाद अपनी एनर्जी और परफॉर्मेंस को लेकर काफी
-                    सकारात्मक महसूस करने लगा हूं। इसका असर हमारी रिलेशनशिप पर भी देखने को मिला और मैरिड लाइफ पहले से
-                    ज्यादा खुशहाल हुई है।”
-                </p>
-            </article>
-
-            <article class="review-card-box">
-                <div class="review-img-frame"><img src="images/customer-review-1.png" alt="Shibbu Ali" loading="lazy"></div>
-                <h4 class="review-user-name">Shibbu Ali (From Kanpur)</h4>
-                <p class="review-user-text">
-                    मैं भी कई सालों से अपनी कमजोरी और कम स्टैमिना को लेकर परेशान था। Veda Prime+ Capsule के उपयोग के बाद
-                    मुझे अद्भुत परिणाम मिले हैं। मेरी शारीरिक ऊर्जा, टाइमिंग और आत्मविश्वास में जबर्दस्त सुधार आया है। अब
-                    वैवाहिक जीवन में नई खुशी और संतुष्टि का अनुभव हो रहा है।
-                </p>
-            </article>
-        </section>
-
-        <!-- ================= FINAL OFFER ================= -->
-        <section class="banner-section">
-            <img src="images/product-2.webp" alt="Couple with Veda Prime+ Capsule bottle" class="main-img natural" loading="lazy" width="800" height="711">
-        </section>
-
-        <section class="banner-section">
-            <img src="images/veda-prime-bottle.webp" alt="Veda Prime+ Capsule bottle" class="main-img natural product-shot" loading="lazy" width="526" height="924">
-        </section>
-
-        <section class="offer-section">
-            <p class="offer-benefit-title">BENEFITS : SIZE + STAMINA + TIMING</p>
-            <h2 class="offer-shipping-en">Free Shipping + Cash on Delivery</h2>
-            <h3 class="offer-shipping-hi">मुफ़्त शिपिंग + कॅश ऑन डिलीवरी</h3>
-
-            <div class="offer-badge" aria-label="45% OFF">
-                <span class="ob-big">45%</span>
-                <span class="ob-small">OFF</span>
-            </div>
-
-            <div class="pricing-row">
-                <span class="original-price"><del>₹4,500/-</del></span>
-                <span class="offer-price">Offer Price ₹2,490/-</span>
-            </div>
-
-            <a href="#order-form" class="order-now-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
-                </svg>
-                ORDER NOW ₹2490/-
-            </a>
-
-            <p class="final-note">
-                ऑर्डर करने के बाद हमारे डिलीवरी पार्टनर आपसे जल्द ही सम्पर्क करेंगे और आपका ऑर्डर 3-7 दिनों में आपके
-                दिए गए पते पर डिलीवर कर दिया जाएगा
-            </p>
-        </section>
-
-        <footer class="site-footer">
-            <p class="footer-copy">© <span id="year">2026</span> Vedantara Naturals. All rights reserved.</p>
-        </footer>
-    </div>
-
-    <!-- ================= STICKY FOOTER BAR ================= -->
-    <div class="sticky-footer-bar">
-        <div class="sticky-footer-left">
-            <h3 class="sticky-footer-title">Limited Time Offer</h3>
-            <div class="sticky-footer-timer" id="stickyTimer">14 : 59</div>
-            <p class="sticky-footer-sub">ऑफर सीमित समय तक</p>
-        </div>
-        <a href="#order-form" class="sticky-footer-btn">अभी आर्डर करे</a>
-    </div>
-
-    <!-- ================= THANK YOU MODAL ================= -->
-    <div class="thanks-modal" id="thanksModal" role="dialog" aria-modal="true" aria-labelledby="thanksTitle">
-        <div class="thanks-card">
-            <div class="thanks-icon" aria-hidden="true">✓</div>
-            <h2 id="thanksTitle">धन्यवाद! Thank You!</h2>
-            <p>आपका ऑर्डर सफलतापूर्वक दर्ज कर लिया गया है। हमारी टीम जल्द ही आपको कॉल करके ऑर्डर कन्फर्म करेगी।</p>
-            <dl class="thanks-summary" id="thanksSummary"></dl>
-            <button type="button" class="form-submit-btn" id="thanksClose">ठीक है (OK)</button>
-        </div>
-    </div>
-
-    <script src="script.js?v=2"></script>
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];
-t=b.createElement(e);t.async=!0;
-t.src=v;
-s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)
-}(window,document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '3112175659125785');
-fbq('track', 'PageView');
-</script>
-
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=3112175659125785&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
-</head>
-
+    <script>
+        function verifyAge() {
+            // सेशन स्टोर में सेव कर लेंगे ताकि बार-बार वेरिफिकेशन न मांगें
+            sessionStorage.setItem('apar_age_verified', 'true');
+            // मुख्य वेबसाइट पर रीडायरेक्ट करें
+            window.location.href = 'main.html';
+        }
+    </script>
 </body>
-
 </html>
