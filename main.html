@@ -4,692 +4,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apar Shakti - Special Offer</title>
-
-    <!-- Age Verification Gate Check -->
-    <script>
-        if (sessionStorage.getItem('apar_age_verified') !== 'true') {
-            window.location.replace('index.html');
-        }
-    </script>
+    <title>Apar Shakti | Official Website</title>
+    <meta name="description" content="Apar Shakti – Ayurvedic formula for men's wellness. Free Shipping + Cash on Delivery.">
+    <link rel="icon" href="images/logo.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@500;700;900&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
 
-    <style>
-        html {
-            scroll-behavior: smooth;
+    <!-- Age Verification Gate Check -->
+    <script>
+        if (sessionStorage.getItem('vedantara_age_verified') !== 'true') {
+            window.location.replace('index.html');
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: #f0f0f0;
-            color: #111111;
-            display: flex;
-            justify-content: center;
-        }
-
-        .page-container {
-            width: 100%;
-            max-width: 480px;
-            background-color: #ffffff;
-            min-height: 100vh;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            padding-bottom: 150px;
-        }
-
-        /* Gov Header Strip */
-        .gov-header {
-            background-color: #e98f00;
-            width: 100%;
-            padding: 15px 18px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-        }
-        .gov-logo-text {
-            color: #ffffff;
-            font-family: 'Noto Sans Devanagari', sans-serif;
-            font-size: 12px;
-            line-height: 1.3;
-            text-align: right;
-            font-weight: 600;
-        }
-        .gov-logo-main {
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 800;
-        }
-        .nha-emblem {
-            width: 50px;
-            height: auto;
-        }
-
-        /* Main Product Titles */
-        .product-hero-section {
-            padding: 25px 18px 15px 18px;
-            text-align: center;
-        }
-        .main-product-title {
-            color: #1b884c;
-            font-size: 24px;
-            font-weight: 800;
-            line-height: 1.3;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        .product-hindi-desc {
-            color: #333333;
-            font-family: 'Noto Sans Devanagari', sans-serif;
-            font-size: 15px;
-            font-weight: 500;
-            line-height: 1.5;
-        }
-
-        /* --- LANDSCAPE MEDIA BLOCK (YouTube Style 16:9) --- */
-        .media-benefits-container {
-            width: 100%;
-            background-color: #111111;
-            padding: 16px;
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .landscape-media-box {
-            width: 100%;
-            aspect-ratio: 16 / 9; /* YouTube Video Ratio */
-            background-color: #222222;
-            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop');
-            background-position: center;
-            background-size: cover;
-            border-radius: 8px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-start;
-            padding: 12px;
-            position: relative;
-        }
-
-        .image-hindi-overlay {
-            background-color: rgba(0, 0, 0, 0.75);
-            color: #facc15;
-            font-family: 'Noto Sans Devanagari', sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-
-        .benefits-list-horizontal {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            font-family: 'Noto Sans Devanagari', sans-serif;
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .benefits-list-horizontal li {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 8px 10px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .headline-after-image {
-            font-family: 'Noto Sans Devanagari', sans-serif;
-            color: #111;
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 1.5;
-            padding: 0 18px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        /* Offer Section & Form Styles */
-        .offer-section {
-            padding: 10px 14px 25px 14px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .offer-card {
-            width: 100%;
-            background: #ffffff;
-            border: 2px solid #e68a00;
-            border-radius: 20px;
-            padding: 20px 16px;
-            box-shadow: 0 8px 25px rgba(230, 138, 0, 0.12);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .special-deal-pill {
-            background: linear-gradient(180deg, #d92222 0%, #b91c1c 100%);
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 800;
-            padding: 6px 18px;
-            border-radius: 50px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-
-        .benefit-chips {
-            display: flex;
-            gap: 6px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 14px;
-        }
-
-        .benefit-chip {
-            background: #fffdf0;
-            border: 1.5px solid #fcd34d;
-            color: #78350f;
-            font-size: 12px;
-            font-weight: 800;
-            padding: 5px 12px;
-            border-radius: 50px;
-        }
-
-        .dashed-price-box {
-            width: 100%;
-            background: #fffdf5;
-            border: 1.5px dashed #f59e0b;
-            border-radius: 14px;
-            padding: 12px;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-        }
-
-        .price-info-right {
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .mrp-line {
-            font-size: 13px;
-            font-weight: 700;
-            color: #475569;
-        }
-
-        .mrp-line del {
-            color: #ef4444;
-            font-weight: 800;
-        }
-
-        .deal-line {
-            font-size: 14px;
-            font-weight: 800;
-            color: #1e293b;
-        }
-
-        .deal-amount {
-            color: #047857;
-            font-size: 26px;
-            font-weight: 900;
-        }
-
-        .save-tag-pill {
-            background: #dcfce7;
-            border: 1px solid #86efac;
-            color: #15803d;
-            font-size: 11px;
-            font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 4px;
-            display: inline-block;
-        }
-
-        .dual-trust-cards {
-            display: flex;
-            gap: 8px;
-            width: 100%;
-            margin-bottom: 14px;
-        }
-
-        .trust-mini-card {
-            flex: 1;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            text-align: left;
-        }
-
-        .trust-mini-title {
-            font-size: 12px;
-            font-weight: 800;
-            color: #0f172a;
-        }
-
-        .trust-mini-sub {
-            font-size: 10px;
-            font-weight: 600;
-            color: #2563eb;
-        }
-
-        .order-now-btn {
-            width: 100%;
-            padding: 14px;
-            border-radius: 50px;
-            background: linear-gradient(180deg, #d97706 0%, #b45309 100%);
-            color: #ffffff;
-            font-size: 17px;
-            font-weight: 900;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 6px 20px rgba(180, 83, 9, 0.4);
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-        }
-
-        .order-secure-footnote {
-            font-size: 11px;
-            font-weight: 700;
-            color: #475569;
-            margin-top: 10px;
-            display: block;
-        }
-
-        .order-form-box {
-            width: 100%;
-            background-color: #1a1a1a;
-            border: 2px solid #e68a00;
-            border-radius: 14px;
-            padding: 20px 14px;
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        .form-group {
-            margin-bottom: 14px;
-        }
-
-        .form-label {
-            display: block;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .form-label .req {
-            color: #ef4444;
-        }
-
-        .form-control {
-            width: 100%;
-            background-color: #ffffff;
-            color: #111111;
-            font-size: 14px;
-            padding: 11px 12px;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            outline: none;
-        }
-
-        .phone-prefix-group {
-            display: flex;
-            align-items: stretch;
-            width: 100%;
-            background-color: #ffffff;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .phone-prefix-badge {
-            background-color: #f3f4f6;
-            color: #111827;
-            font-size: 14px;
-            font-weight: 700;
-            padding: 11px 12px;
-            border-right: 1px solid #d1d5db;
-            display: flex;
-            align-items: center;
-        }
-
-        .phone-input-field {
-            border: none !important;
-            flex: 1;
-            padding: 11px 12px;
-            outline: none;
-        }
-
-        .phone-duplicate-warning {
-            display: none;
-            margin-top: 6px;
-            padding: 8px 12px;
-            background-color: #fef2f2;
-            border: 1px solid #dc2626;
-            border-radius: 6px;
-            color: #dc2626;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .form-submit-btn {
-            width: 100%;
-            background-color: #e68a00;
-            color: #ffffff;
-            font-size: 17px;
-            font-weight: 800;
-            padding: 13px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 6px;
-            box-shadow: 0 4px 12px rgba(230, 138, 0, 0.3);
-        }
-
-        .sticky-footer-bar {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 480px;
-            background-color: #E98F00;
-            padding: 10px 16px;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .sticky-footer-title {
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 900;
-            margin: 0;
-        }
-
-        .sticky-footer-timer {
-            color: #ffffff;
-            font-size: 20px;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        .sticky-footer-sub {
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .sticky-footer-btn {
-            background-color: #008000;
-            color: #ffffff;
-            font-size: 15px;
-            font-weight: 800;
-            padding: 10px 22px;
-            border-radius: 30px;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            white-space: nowrap;
-        }
-    </style>
+    </script>
 </head>
 
 <body>
 
     <div class="page-container">
-        
-        <!-- Gov Header Strip -->
-        <header class="gov-header">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/National_Health_Authority_of_India_Logo.svg" alt="NHA Emblem" class="nha-emblem">
-            <div class="gov-logo-text">
-                <span class="gov-logo-main">NATIONAL HEALTH AUTHORITY</span><br>
-                GOVERNMENT OF INDIA
+
+        <!-- ================= HEADER ================= -->
+        <header class="top-header">
+            <div class="header-content">
+                <a href="#" class="brand" aria-label="Apar Shakti home">
+                    <img src="images/logo.png" alt="Logo" class="header-logo" width="420" height="398" onerror="this.alt='Brand Logo'">
+                </a>
+                <p class="header-title">National Health Authority<br>Government of India</p>
             </div>
         </header>
 
-        <!-- Product Headline -->
-        <section class="product-hero-section">
-            <h1 class="main-product-title">INDIA'S TOP SELLING APAR SHAKTI CAPSULE</h1>
-            <p class="product-hindi-desc">
+        <!-- ================= HERO ================= -->
+        <section class="hero-section">
+            <h1 class="hero-green-title">INDIA'S TOP SELLING APAR SHAKTI CAPSULE</h1>
+            <p class="hero-desc">
                 भारत का एकमात्र सबसे भरोसेमंद दवाई। 100% आयुर्वेदिक फॉर्मूला। किसी तरह की साइड इफेक्ट्स नहीं होती।
             </p>
         </section>
 
-        <!-- Landscape Media & Benefits Block -->
-        <div class="media-benefits-container">
-            <div class="landscape-media-box">
-                <div class="image-hindi-overlay">महिलाओं की ख्वाहिश</div>
+        <!-- Banner: couple photo + text overlay -->
+        <section class="banner-section">
+            <div class="desire-banner">
+                <h2 class="desire-title">महिलाओं <span>की ख्वाहिश</span></h2>
+                <img src="images/couple-banner.jpg" alt="Romantic couple" class="desire-img" width="1000" height="667">
+                <ul class="desire-list">
+                    <li>जंबो साइज लिंग</li>
+                    <li>ज्यादा सेक्स टाइमिंग</li>
+                    <li>दमदार स्टैमिना</li>
+                    <li>बेहतर सेक्स ऑर्गेज़्म</li>
+                </ul>
             </div>
+        </section>
 
-            <ul class="benefits-list-horizontal">
-                <li>✓ जंबो साइज़ लिंग</li>
-                <li>✓ ज़्यादा सेक्स टाइमिंग</li>
-                <li>✓ दमदार स्टैमिना</li>
-                <li>✓ बेहतर सेक्स ऑरग़ैज़्म</li>
-            </ul>
-        </div>
+        <!-- Post-banner text -->
+        <section class="text-block">
+            <p class="hero-desc">
+                आप 12 दिनों में, लिंग का आकार कम से कम 8-9 सेंटीमीटर तक बढ़ा सकते हैं और लगातार पाँच बार संभोग कर सकते हैं।
+            </p>
+        </section>
 
-        <!-- Headline after image -->
-        <div class="headline-after-image">
-            आप 12 दिनों में, लिंग का आकार कम से कम 8-9 सेंटीमीटर तक बढ़ा सकते हैं और लगातार पाँच बार संभोग कर सकते हैं।
-        </div>
+        <!-- ================= NEW PRODUCT SHOWCASE SECTION ================= -->
+        <section style="padding: 15px 18px; background-color: var(--white); text-align: center;">
+            <p style="font-size: 16px; font-weight: 700; line-height: 1.5; color: var(--ink); margin-bottom: 15px;">
+                आप 12 दिनों में, लिंग का आकार कम से कम 8-9 सेंटीमीटर तक बढ़ा सकते हैं और लगातार पाँच बार संभोग कर सकते हैं।
+            </p>
+            <div style="background-color: var(--dark); border-radius: var(--radius); padding: 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18); overflow: hidden;">
+                <!-- यहाँ अपनी प्रोडक्ट बोतल की तस्वीर (जैसे bottle.webp) का नाम या लिंक डालें -->
+                <img src="images/veda-prime-bottle.webp" alt="Apar Shakti Bottle" style="width: 100%; height: auto; display: block; border-radius: 6px; object-fit: contain;">
+            </div>
+        </section>
 
-        <!-- Offer Section & Form -->
+        <!-- Product image -->
+        <section class="banner-section">
+            <img src="images/veda-prime-bottle.webp" alt="Apar Shakti Capsule bottle" class="main-img natural product-shot" loading="lazy" width="526" height="924">
+        </section>
+
+        <!-- ================= OFFER ================= -->
         <section class="offer-section">
-            <div class="offer-card">
-                <div class="special-deal-pill">
-                    🔥 सीमित समय का ऑफर (SPECIAL DEAL)
-                </div>
+            <p class="offer-benefit-title">BENEFITS : SIZE + STAMINA + TIMING</p>
+            <h2 class="offer-shipping-en">Free Shipping + Cash on Delivery</h2>
+            <h3 class="offer-shipping-hi">मुफ़्त शिपिंग + कॅश ऑन डिलीवरी</h3>
 
-                <div class="benefit-chips">
-                    <span class="benefit-chip">⚡ STAMINA</span>
-                    <span class="benefit-chip">💪 ENERGY</span>
-                    <span class="benefit-chip">⏱️ TIMING</span>
-                </div>
-
-                <div class="dashed-price-box">
-                    <div class="price-info-right">
-                        <div class="mrp-line">M.R.P.: <del>₹4,980/-</del></div>
-                        <div class="deal-line">डील कीमत: <span class="deal-amount">₹2,490/-</span></div>
-                        <div class="save-tag-pill">बचत: ₹2,490 (50% छूट)</div>
-                    </div>
-                </div>
-
-                <div class="dual-trust-cards">
-                    <div class="trust-mini-card">
-                        <span>🚚</span>
-                        <div>
-                            <h5 class="trust-mini-title">मुफ़्त शिपिंग</h5>
-                            <span class="trust-mini-sub">Free Delivery</span>
-                        </div>
-                    </div>
-                    <div class="trust-mini-card">
-                        <span>💵</span>
-                        <div>
-                            <h5 class="trust-mini-title">कैश ऑन डिलीवरी</h5>
-                            <span class="trust-mini-sub">Pay on Delivery</span>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="#order-form" class="order-now-btn">
-                    <span>ORDER NOW ₹2490/-</span>
-                </a>
-                <span class="order-secure-footnote">🔒 100% गोपनीय व सुरक्षित पार्सल | पहले कोई पेमेंट नहीं</span>
+            <div class="offer-badge" aria-label="50% OFF">
+                <span class="ob-big">50%</span>
+                <span class="ob-small">OFF</span>
             </div>
 
-            <!-- Order Form Box -->
+            <div class="pricing-row">
+                <span class="original-price"><del>₹4,980/-</del></span>
+                <span class="offer-price">Offer Price ₹2,490/-</span>
+            </div>
+
+            <a href="#order-form" class="order-now-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+                </svg>
+                ORDER NOW ₹2490/-
+            </a>
+        </section>
+
+        <!-- Details image -->
+        <section class="banner-section">
+            <img src="images/5.webp" alt="Apar Shakti Lab Testing" class="main-img natural" loading="lazy" width="552" height="331">
+        </section>
+
+        <section class="title-block">
+            <h2 class="section-title-highlight">महिलाएं ऐसा मर्द चाहती हैं जो उनके अंग अंग में तरंग जगाएं</h2>
+        </section>
+
+        <!-- 4-week image -->
+        <section class="banner-section">
+            <img src="images/4-week.webp" alt="4 Week Results" class="main-img natural" loading="lazy" width="576" height="859">
+        </section>
+
+        <section class="title-block">
+            <h2 class="section-title-red">
+                यदि कोई पुरुष अपनी स्त्री को संतुष्ट नहीं कर सकता है, तो वह अन्य पुरुषों द्वारा संतुष्ट की जाएगी_ 86% महिलाएं अपने पति को धोखा देकर बेवफाई करती हैं क्योंकि वे सेक्स में असंतुष्ट हैं
+            </h2>
+        </section>
+
+        <!-- ================= DARK OFFER + ORDER FORM ================= -->
+        <section class="dark-offer-section">
+            <img src="images/veda-prime-bottle.webp" alt="Apar Shakti Capsule bottle" class="dark-product-img" loading="lazy" width="526" height="924">
+
+            <p class="dark-benefit-title">BENEFITS : SIZE + STAMINA + TIMING</p>
+
+            <div class="offer-badge offer-badge--sm" aria-label="50% OFF">
+                <span class="ob-big">50%</span>
+                <span class="ob-small">OFF</span>
+            </div>
+
+            <div class="pricing-row">
+                <span class="original-price"><del>₹4,980/-</del></span>
+                <span class="offer-price offer-price--light">Offer Price ₹2,490/-</span>
+            </div>
+
+            <a href="#order-form" class="order-now-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+                </svg>
+                ORDER NOW ₹2490/-
+            </a>
+
+            <div class="shipping-note">
+                <h3>Free Shipping</h3>
+                <h4>मुफ़्त शिपिंग</h4>
+                <p>
+                    ऑर्डर करने के बाद हमारे डिलीवरी पार्टनर आपसे जल्द ही सम्पर्क करेंगे और आपका ऑर्डर 3-7 दिनों में
+                    आपके दिए गए पते पर डिलीवर कर दिया जाएगा
+                </p>
+            </div>
+
+            <!-- Order Form -->
             <div class="order-form-box" id="order-form">
-                <form id="leadForm" onsubmit="handleFormSubmit(event)">
+                <div id="orderSuccessMsg" class="form-success-banner" role="status" aria-live="polite">
+                    ✓ आपका ऑर्डर सफलतापूर्वक दर्ज कर लिया गया है! हम जल्द ही आपसे संपर्क करेंगे।
+                </div>
+
+                <form id="leadForm" novalidate>
                     <div class="form-group">
                         <label class="form-label" for="nameInput">Full Name <span class="req">*</span></label>
-                        <input type="text" id="nameInput" name="name" class="form-control" placeholder="अपना पूरा नाम लिखें" required minlength="2" maxlength="50">
+                        <input type="text" id="nameInput" name="name" class="form-control"
+                            placeholder="अपना पूरा नाम लिखे" required minlength="2" maxlength="50" autocomplete="name">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="ageInput">Your Age <span class="req">*</span></label>
-                        <input type="number" id="ageInput" name="age" class="form-control" placeholder="अपनी उम्र डालें" required min="18" max="85">
+                        <input type="number" id="ageInput" name="age" class="form-control"
+                            placeholder="अपना उम्र डालें" required min="18" max="85" inputmode="numeric">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="weightInput">Your Weight <span class="req">*</span></label>
+                        <input type="number" id="weightInput" name="weight" class="form-control"
+                            placeholder="अपना वजन डालें" required min="35" max="150" inputmode="numeric">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="phoneInput">Phone Number <span class="req">*</span></label>
-                        <div class="phone-prefix-group" id="phonePrefixGroup">
-                            <span class="phone-prefix-badge">🇮🇳 +91</span>
-                            <input type="tel" id="phoneInput" name="phone" inputmode="numeric" class="form-control phone-input-field" placeholder="10 अंकों का मोबाइल नंबर" required oninput="handlePhoneInput(this)">
-                        </div>
-                        <div id="phoneDuplicateAlert" class="phone-duplicate-warning" role="alert">
-                            ⚠️ इस मोबाइल नंबर से पिछले 24 घंटों में पहले ही ऑर्डर सबमिट किया जा चुका है।
-                        </div>
+                        <input type="tel" id="phoneInput" name="phone" inputmode="numeric" maxlength="10"
+                            class="form-control" placeholder="अपना 10 अंकों का फ़ोन नंबर दर्ज करे" required
+                            autocomplete="tel-national">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="addressInput">Street Address <span class="req">*</span></label>
-                        <input type="text" id="addressInput" name="address" class="form-control" placeholder="अपना पूरा पता भरिये (गाँव/शहर, जिला)" required minlength="6">
+                        <input type="text" id="addressInput" name="address" class="form-control"
+                            placeholder="अपना पूरा पता भरिये" required minlength="6" maxlength="200"
+                            autocomplete="street-address">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="zipInput">Zip/Postal Code <span class="req">*</span></label>
-                        <input type="text" id="zipInput" name="pincode" inputmode="numeric" minlength="6" maxlength="6" class="form-control" placeholder="पिन कोड लिखिए" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,6)">
+                        <input type="text" id="zipInput" name="pincode" inputmode="numeric" maxlength="6"
+                            class="form-control" placeholder="पिन कोड लिखिए" required autocomplete="postal-code">
                     </div>
+
+                    <p class="form-error" id="formError" role="alert"></p>
 
                     <button type="submit" class="form-submit-btn">Order Now</button>
                 </form>
             </div>
         </section>
+
+        <!-- ================= PAYMENT / TRUST STRIP ================= -->
+        <section class="banner-section trust-images">
+            <img src="images/upi.webp" alt="UPI & Payment Options" class="main-img natural" loading="lazy" width="768" height="228">
+        </section>
+
+        <section class="banner-section">
+            <img src="images/trust-badges.webp" alt="Free Shipping, AYUSH/FSSAI Approved, Made in India" class="main-img natural" loading="lazy" width="536" height="55">
+        </section>
+
+        <!-- Product highlight text -->
+        <section class="text-block">
+            <p class="body-text">
+                Apar Shakti लिंग वृद्धि के लिए एक प्रभावी और प्राकृतिक उत्पाद है. Apar Shakti आपकी खड़ेपन की समस्या में भी सहायता करेगा, क्योंकि ये आपके लिंग को बिना किसी समस्या के बड़ा और मज़बूत बनाने का नया तरीक़ा है.
+            </p>
+        </section>
+
+        <!-- ================= STORY / QUOTE BLOCKS ================= -->
+        <section class="title-block">
+            <h2 class="statement">एक बड़ा लिंग ऐसी चीज़ होती है जिस पर हर मर्द को गर्व होना चाहिए!</h2>
+        </section>
+
+        <section class="box-block">
+            <div class="dbl-box">
+                <p class="quote">“साइज़ से फ़र्क तो पड़ता है – अमेरिकन वैज्ञानिकों ने शोध किया है कि छोटे लिंग वाले मर्दों को लड़कियां नहीं मिलतीं और वे दुखी रहते हैं।”</p>
+            </div>
+        </section>
+
+        <section class="title-block">
+            <h2 class="orange-heading">मर्दानगी वापस लाकर उसे बढ़ाया कैसे जा सकता है?</h2>
+        </section>
+
+        <section class="box-block">
+            <div class="dbl-box">
+                <h4 class="box-title">
+                    क्या जल्दी से अपनी मर्दानगी वापस लाना संभव है, वह भी सुरक्षित तरीके से और डॉक्टर के पास जाए बिना?
+                </h4>
+                <p>
+                    आज इंटरनेट में कई तरह की जैल और गोलियां आसानी से उपलब्ध हैं, लेकिन क्या ये विज्ञापन में बताए जितनी असरदार हैं?
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= REVIEWS ================= -->
+        <section class="title-block">
+            <h2 class="section-title-highlight">ग्राहकों की राय</h2>
+        </section>
+
+        <section class="reviews-container">
+            <article class="review-card-box">
+                <div class="review-img-frame"><img src="images/customer-review-15.png" alt="Ankita" loading="lazy"></div>
+                <h4 class="review-user-name">Ankita (From Haryana)</h4>
+                <p class="review-user-text">
+                    यह वास्तव में प्रभावी उत्पाद है। मैंने अपने जीवन में कई दवाओं की कोशिश की है, लेकिन वियाग्रा ने भी Apar Shakti जैसा प्रभाव नहीं दिया!
+                </p>
+            </article>
+
+            <article class="review-card-box">
+                <div class="review-img-frame"><img src="images/customer-review-10.png" alt="Ravi" loading="lazy"></div>
+                <h4 class="review-user-name">Ravi (From Jodhpur)</h4>
+                <p class="review-user-text">
+                    मैं सच में हैरान रह गई कि मेरे पति की परफॉर्मेंस कितनी बेहतर हो गई है. बाद में मुझे उनके बेडसाइड में Apar Shakti मिला। Thank You Apar Shakti.
+                </p>
+            </article>
+        </section>
+
+        <footer class="site-footer">
+            <p class="footer-copy">© <span id="year">2026</span> Apar Shakti. All rights reserved.</p>
+        </footer>
     </div>
 
-    <!-- Sticky Bottom Offer Bar -->
+    <!-- ================= STICKY FOOTER BAR ================= -->
     <div class="sticky-footer-bar">
-        <div>
+        <div class="sticky-footer-left">
             <h3 class="sticky-footer-title">Limited Time Offer</h3>
             <div class="sticky-footer-timer" id="stickyTimer">14 : 59</div>
             <p class="sticky-footer-sub">ऑफर सीमित समय तक</p>
         </div>
-        <div>
-            <a href="#order-form" class="sticky-footer-btn">अभी ऑर्डर करे</a>
+        <a href="#order-form" class="sticky-footer-btn">अभी आर्डर करे</a>
+    </div>
+
+    <!-- ================= THANK YOU MODAL ================= -->
+    <div class="thanks-modal" id="thanksModal" role="dialog" aria-modal="true" aria-labelledby="thanksTitle">
+        <div class="thanks-card">
+            <div class="thanks-icon" aria-hidden="true">✓</div>
+            <h2 id="thanksTitle">धन्यवाद! Thank You!</h2>
+            <p>आपका ऑर्डर सफलतापूर्वक दर्ज कर लिया गया है। हमारी टीम जल्द ही आपको कॉल करके ऑर्डर कन्फर्म करेगी।</p>
+            <dl class="thanks-summary" id="thanksSummary"></dl>
+            <button type="button" class="form-submit-btn" id="thanksClose">ठीक है (OK)</button>
         </div>
     </div>
 
-    <script>
-        (function () {
-            let totalSeconds = 15 * 60;
-            const timerEl = document.getElementById('stickyTimer');
-            if (!timerEl) return;
-            setInterval(() => {
-                if (totalSeconds <= 0) totalSeconds = 15 * 60;
-                const m = Math.floor(totalSeconds / 60);
-                const s = totalSeconds % 60;
-                timerEl.textContent = `${String(m).padStart(2, '0')} : ${String(s).padStart(2, '0')}`;
-                totalSeconds--;
-            }, 1000);
-        })();
-
-        const GOOGLE_SHEET_WEBAPP_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
-        const SUBMIT_LOCK_DURATION = 24 * 60 * 60 * 1000;
-
-        function normalizePhoneNumber(input) {
-            if (!input) return "";
-            let str = String(input).replace(/\D/g, '');
-            if (str.length > 10) str = str.slice(-10);
-            return str;
-        }
-
-        function isPhoneLocked(phone) {
-            const cleanPhone = normalizePhoneNumber(phone);
-            if (!cleanPhone || cleanPhone.length !== 10) return false;
-            try {
-                const val = localStorage.getItem('phone_submit_' + cleanPhone);
-                if (val && (Date.now() - parseInt(val, 10) < SUBMIT_LOCK_DURATION)) return true;
-            } catch (e) {}
-            return false;
-        }
-
-        function lockPhoneNumber(phone) {
-            const cleanPhone = normalizePhoneNumber(phone);
-            if (cleanPhone.length === 10) {
-                localStorage.setItem('phone_submit_' + cleanPhone, Date.now().toString());
-            }
-        }
-
-        function handlePhoneInput(input) {
-            document.getElementById('phoneDuplicateAlert').style.display = 'none';
-            input.value = normalizePhoneNumber(input.value).slice(0, 10);
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const form = document.getElementById('leadForm');
-            const submitBtn = form.querySelector('.form-submit-btn');
-
-            const rawPhone = document.getElementById('phoneInput').value.trim();
-            const normalizedPhone = normalizePhoneNumber(rawPhone);
-
-            if (!/^[6-9]\d{9}$/.test(normalizedPhone)) {
-                alert('कृपया वैध 10 अंकों का भारतीय मोबाइल नंबर दर्ज करें।');
-                return;
-            }
-
-            if (isPhoneLocked(normalizedPhone)) {
-                document.getElementById('phoneDuplicateAlert').style.display = 'block';
-                alert('⚠️ इस मोबाइल नंबर से पहले ही ऑर्डर सबमिट किया जा चुका है।');
-                return;
-            }
-
-            lockPhoneNumber(normalizedPhone);
-
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Order Placed! Submitting...";
-
-            const formData = new FormData(form);
-            formData.set('phone', '+91 ' + normalizedPhone);
-
-            if (GOOGLE_SHEET_WEBAPP_URL && GOOGLE_SHEET_WEBAPP_URL !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
-                fetch(GOOGLE_SHEET_WEBAPP_URL, {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'no-cors',
-                    keepalive: true
-                }).catch(err => console.error(err));
-            }
-
-            setTimeout(() => {
-                alert('🎉 आपका ऑर्डर सफलतापूर्वक सबमिट हो गया है! जल्द ही हमारी टीम आपसे संपर्क करेगी।');
-                form.reset();
-                submitBtn.disabled = false;
-                submitBtn.innerText = "Order Now";
-            }, 1000);
-        }
-    </script>
+    <!-- Script file -->
+    <script src="script.js?v=2"></script>
 </body>
+
 </html>
